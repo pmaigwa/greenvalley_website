@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GREEN VALLEY MILLERS | Wheat Products</title>
+    <link rel="icon" href="./images/gvm logo.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: #0c3524;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .logo img {
+            height: 50px;
+            width: 80px;
+        }
+
+        .header .navbar ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header .navbar ul li a {
+            font-size: 1.2rem;
+            color: rgb(250, 244, 244);
+            font-weight: 500;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+
+        .header .navbar ul li a:hover,
+        .header .navbar ul li .active {
+            color: #a020f0;
+            font-weight: bold;
+        }
+
+        /* Banner Section */
+        .banner {
+            background: linear-gradient(to right, #800080, #b895db);
+            padding: 100px 50px;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+
+        .banner h1 {
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .banner p {
+            font-size: 16px;
+        }
+
+        /* Coming Soon Section */
+        .coming-soon-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60vh;
+            text-align: center;
+        }
+
+        .coming-soon-text {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #800080;
+            border-right: 5px solid #800080;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 3s steps(13, end) infinite alternate,
+                       blink 0.6s infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 13ch;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <a href="index.html" class="logo"><img src="./images/gvm logo.png" alt="Logo"></a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#products" class="active">Products</a></li>
+                <li><a href="index.html#service">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.html#faq">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="banner">
+        <h1>Wheat Products</h1>
+        <p>#GVM</p>
+    </div>
+
+    <div class="coming-soon-container">
+        <p class="coming-soon-text">Coming Soon...</p>
+    </div>
+
+</body>
+</html>

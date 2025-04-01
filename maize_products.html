@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GREEN VALLEY MILLERS | Products</title>
+    <link rel="icon" href="./images/gvm logo.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 1rem 2rem;
+            background:#0c3524;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .logo img {
+            height: 50px;
+            width: 80px;
+        }
+
+        .header .navbar ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header .navbar ul li a {
+            font-size: 1.2rem;
+            color: rgb(250, 244, 244);
+            font-weight: 500;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+
+        .header .navbar ul li a:hover,
+        .header .navbar ul li .active {
+            color: #11e718;
+        }
+
+        
+        .banner {
+            background: linear-gradient(to right, #094d25, #11e718);
+            padding: 100px 50px;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+
+        .banner h1 {
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .banner p {
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .container h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .product-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .product-section img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 10px;
+        }
+
+        .product-description {
+            flex: 1;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .product-description h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-description p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .reverse {
+            flex-direction: row-reverse;
+        }
+
+        @media (max-width: 768px) {
+            .product-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .product-description {
+                text-align: center;
+                padding: 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <a href="index.html" class="logo"><img src="./images/gvm logo.png" alt="Logo"></a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#products" class="active">Products</a></li>
+                <li><a href="index.html#service">Services</a></li>
+                <li><a href="index.html#faq">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="banner">
+        <h1>Our Products</h1>
+        <p>#TamashaGlobal</p>
+    </div>
+
+    <div class="container">
+        <h2>Products</h2>
+
+        <!-- Product 1 -->
+        <div class="product-section">
+            <div class="product-description">
+                <h3>Tamasha</h3>
+                <p>Fortified Grade 1 maize flour. You will be left celebrating with a smile.</p>
+            </div>
+            <img src="./images/TAMASHA GRADE 1.jpg" alt="Tamasha">
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-section reverse">
+            <div class="product-description">
+                <h3>Global</h3>
+                <p>Clean, White, Pure premium maize flour. Your best choice premium maize flour.</p>
+            </div>
+            <img src="./images/_DSC1855 (1).jpg" alt="Global">
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-section">
+            <div class="product-description">
+                <h3>Tamasha Premium</h3>
+                <p>Enjoy the premium at an affordable price.</p>
+            </div>
+            <img src="./images/tamasha_premium.png" alt="Vetlick Dairy Meal">
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.navbar ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href').startsWith("index.html#")) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').split("#")[1];
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Hover effect on product images
+        document.querySelectorAll('.product-section img').forEach(img => {
+            img.addEventListener('mouseenter', () => {
+                img.style.transform = 'scale(1.05)';
+                img.style.transition = '0.3s ease';
+            });
+
+            img.addEventListener('mouseleave', () => {
+                img.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+
+</body>
+</html>

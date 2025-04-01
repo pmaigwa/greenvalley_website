@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GREEN VALLEY MILLERS</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="icon" href="./images/gvm logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <script src="./js/main.js"></script>
+</head>
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: rgb(1, 37, 24);
+            z-index: 1000;
+        }
+
+        .header .logo img {
+            height: 70px;
+            width: 100px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin: 0 15px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            color: #ffcc00;
+        }
+
+        .home {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: black;
+            overflow: hidden;
+        }
+
+        .slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .slideshow img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            animation: fade 12s infinite;
+        }
+
+        .slideshow img:nth-child(1) { animation-delay: 0s; }
+        .slideshow img:nth-child(2) { animation-delay: 4s; }
+        .slideshow img:nth-child(3) { animation-delay: 8s; }
+
+        @keyframes fade {
+            0%, 100% { opacity: 0; }
+            25%, 75% { opacity: 1; }
+        }
+
+        .text-container {
+            position: absolute;
+            top: 20%;
+            left: 5%;
+            z-index: 2;
+            font-size: 3rem;
+            color: white;
+            text-align: left;
+        }
+
+        .text-container span {
+            display: inline-block;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo"><img src="./images/gvm logo1.png" alt="Logo"></a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="home">
+        <div class="slideshow">
+            <img src="./images/pexels-clickerhappy-2678.jpg" alt="Maize Products">
+            <img src="./images/pexels-giuseppe-russo-1165064-2228306.jpg" alt="Wheat Products">
+            <img src="./images/pexels-klaus-nielsen-6287581 (1).jpg" alt="Animal Products">
+        </div>
+
+        <div class="text-container" id="text-container"></div>
+    </section>
+
+    <script>
+        const texts = [
+            { text: "GREEN VALLEY MILLERS, offers you;", font: "Georgia, serif" },
+            { text: "CONSISTENCY <br> LOYALTY <br> EXCELLENCE", font: "Arial, sans-serif" },
+            { text: "celebrate the best choice with a smile.", font: "Courier New, monospace" }
+        ];
+
+        let index = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let textContainer = document.getElementById("text-container");
+
+        function typeEffect() {
+            let currentText = texts[index].text;
+            let currentFont = texts[index].font;
+            textContainer.style.fontFamily = currentFont;
+
+            if (isDeleting) {
+                textContainer.innerHTML = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                textContainer.innerHTML = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentText.length) {
+                setTimeout(() => isDeleting = true, 1000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                index = (index + 1) % texts.length;
+            }
+
+            setTimeout(typeEffect, isDeleting ? 50 : 100);
+        }
+
+        typeEffect();
+    </script>
+    <script>
+        function changeText() {
+            textElement.style.fontFamily = slides[index].font;
+            subtextElement.style.fontFamily = slides[index].font;
+            textElement.textContent = slides[index].text;
+            subtextElement.textContent = slides[index].subtext;
+            index = (index + 1) % slides.length;
+            setTimeout(changeText, 4000);
+        }
+
+        changeText();
+    </script>
+  
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        
+        .values-section {
+            background: linear-gradient(to bottom, #e0f7e9, #008f4c);
+            padding: 80px 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .values-content {
+            max-width: 900px;
+            margin: auto;
+            color: white;
+        }
+
+        .values-heading {
+            font-size: 3.2rem;
+            font-weight: 600;
+            color: #044d29; 
+            margin-bottom: 15px;
+        }
+
+        .values-text {
+            font-size: 1.7rem;
+            color: #065c34;
+            margin-bottom: 40px;
+        }
+
+        .values-container {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            text-align: center;
+        }
+
+        .value-box {
+            flex: 1;
+            padding: 30px;
+            background: #027a3a;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 500px;
+            min-width: 350px;
+            border-right: 3px solid #008f4c;
+        }
+
+        
+        .value-box.vision {
+            background: #00b25a;
+            min-height: 350px; 
+        }
+
+       
+        .value-box:last-child {
+            border-right: none;
+        }
+
+        .value-box i {
+            font-size: 40px;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .value-box h3 {
+            font-size: 2.3rem;
+            color: white;
+        }
+
+        .value-box ul {
+            text-align: left;
+            margin: 15px auto 0;
+            padding-left: 20px;
+            max-width: 90%;
+        }
+
+        .value-box ul li {
+            font-size: 1.9rem;
+            color: #f1f1f1;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .values-container {
+                flex-direction: column;
+            }
+
+            .value-box {
+                border-right: none;
+                border-bottom: 3px solid #008f4c;
+            }
+
+            .value-box:last-child {
+                border-bottom: none;
+            }
+
+            .value-box.vision {
+                min-height: 320px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="values-section">
+        <div class="values-content">
+            <h1 class="values-heading">GREEN VALLEY MILLERS LTD</h1>
+            <p class="values-text">We Are Committed To Delivering The Best Maize Flour And Animal Feeds With Consistency, Loyalty, And Excellence.</p>
+
+            <div class="values-container">
+                <div class="value-box">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Mission</h3>
+                    <ul>
+                        <li>Celebrating The Best Choice With A Smile.</li>
+                    </ul>
+                </div>
+
+                <div class="value-box vision">
+                    <i class="fas fa-eye"></i>
+                    <h3>Vision</h3>
+                    <ul>
+                        <li>To Bring Celebration To Our Consumers by</li>
+                        <li>Providing The Best Choice In Maize flour, Wheat flour and Animal Feeds.</li>
+                    </ul>
+                </div>
+
+                <div class="value-box">
+                    <i class="fas fa-gem"></i>
+                    <h3>Values</h3>
+                    <ul>
+                        <li>Consistency</li>
+                        <li>Loyalty</li>
+                        <li>Excellence</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* About Section */
+        .about {
+            width: 100%;
+            background: #f5f1eb;
+            padding: 60px 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Content Styling */
+        .about .content {
+            width: 50%;
+            text-align: left;
+        }
+
+        .about .content h2 {
+            font-size: 3.2rem;
+            font-weight: bold;
+            color: #06402B;
+            margin-bottom: 15px;
+        }
+
+        .about .content p {
+            font-size: 1.9rem;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .about .content p strong {
+            color: #d4a017;
+            font-weight: bold;
+        }
+
+      
+        .about .content .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 1rem;
+            background: #06402B;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .about .content .btn:hover {
+            background: #b2830b;
+        }
+
+        
+        .about .image {
+            width: 50%;
+            text-align: right;
+        }
+
+        .about .image img {
+            max-width: 150%;
+            height: auto;
+        }
+
+       
+        @media (max-width: 1024px) {
+            .about {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about .content, .about .image {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <section id="about" class="about">
+        <div class="content">
+            <h2>OUR STORY:</h2>
+            <p>
+                In the heart of a thriving agricultural region, Green Valley Millers Limited was established in 2024 with a simple but powerful mission: <br>
+                to provide high-quality maize flour, wheat flour, and animal feeds to nourish communities and support farmers. <br>
+                The company was established to bridge the gap between hardworking farmers and consumers seeking nutritious,
+                 affordable food products. <br> Recognizing the increasing demand for reliable and high-quality agricultural products, 
+                 Green Valley Millers Limited set out to become a trusted name in the industry.
+            </p>
+            
+            <button class="btn" onclick="location.href='#home'">More About us</button>
+        </div>
+        <div class="image">
+            <img src="./images/gl_tam1.jpg" alt="Manufacturing Tanks">
+        </div>
+    </section>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+    * {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        list-style: none;
+    }
+
+   
+    .products-section {
+        background-color: #fcf9f9;
+        padding: 60px 0;
+        text-align: center;
+    }
+
+    .products-section h1 {
+        font-size: 4rem;
+        font-weight: bold;
+        color: #0c3524;
+        margin-bottom: 40px;
+    }
+
+    .product-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        gap: 20px;
+        padding: 0 10%;
+    }
+
+    .product-card {
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        min-height: 350px;
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+        color: #ffffff;
+        padding: 20px;
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+    }
+
+    .product-card:hover {
+        transform: scale(1.05);
+    }
+
+    .product-maize {
+        background: url('./images/gl_tam1.jpg') center/cover no-repeat;
+    }
+
+    .product-animal {
+        background: url('./images/vetlick maziwa.jpg') center/cover no-repeat;
+    }
+
+    .product-wheat {
+        background: url('./images/20250304_162938.jpg') center/cover no-repeat;
+    }
+
+    .product-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        transition: background 0.3s ease-in-out;
+    }
+
+    .product-card:hover::before {
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    .product-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .product-content h3 {
+        font-weight: bold;
+        font-size: 1.8rem;
+        color: #fff;
+    }
+
+    .product-content p {
+        font-size: 1.2rem;
+        margin: 10px 0;
+    }
+
+    .more-info-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 1rem;
+        background-color: #0c3524;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .more-info-btn:hover {
+        background-color: #09792a;
+    }
+
+    @media (max-width: 768px) {
+        .product-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .product-card {
+            width: 90%;
+        }
+    }
+</style>
+</head>
+<body>
+
+
+<div id="products" class="products-section">
+<h1>PRODUCTS:</h1>
+<div class="product-container">
+    
+    <div class="product-card product-maize">
+        <div class="product-content">
+            <h3>Maize Products</h3>
+            <button class="more-info-btn" onclick="location.href='maize_products.html'">More Information</button>
+        </div>
+    </div>
+
+    <div class="product-card product-animal">
+        <div class="product-content">
+            <h3>Animal Products</h3>
+            <button class="more-info-btn" onclick="location.href='animal_products.html'">More Information</button>
+        </div>
+    </div>
+
+    <div class="product-card product-wheat">
+        <div class="product-content">
+            <h3>Wheat Products</h3>
+            <button class="more-info-btn" onclick="location.href='wheat_products.html'">More Information</button>
+        </div>
+    </div>
+
+</div>
+</div>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    * {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        list-style: none;
+    }
+
+    body {
+        background-color: #c2bdbd;
+    }
+
+    
+    .services-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 20px;
+    }
+
+    .services-container {
+        display: flex;
+        align-items: center;
+        max-width: 1200px;
+        width: 100%;
+    }
+
+    
+    .services-circle {
+        background: #06402B;
+        color: white;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .services-circle span {
+        font-size: 1.2rem;
+        font-weight: normal;
+        color: #d3d3d3;
+    }
+
+    
+    .services-list {
+        margin-left: 50px;
+        width: 100%;
+    }
+
+    .service-item {
+        display: flex;
+        align-items: center;
+        background: white;
+        border-radius: 50px;
+        padding: 20px 25px;
+        margin-bottom: 25px;
+        position: relative;
+        box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 2.5rem;
+        margin-right: 20px;
+    }
+
+    .service-content {
+        flex: 1;
+    }
+
+    .service-content h3 {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #06402B;
+        margin-bottom: 8px;
+    }
+
+    .service-content p {
+        font-size: 1.6rem;
+        color: #555;
+    }
+
+    
+    .blue { background: #01300b; }
+    .orange { background: #096b19; }
+    .red { background: #06c053; }
+
+    
+    .service-item::before {
+        content: "";
+        position: absolute;
+        left: -50px;
+        width: 50px;
+        height: 2px;
+        background: #aaa9a9;
+        top: 50%;
+    }
+
+    .service-item::after {
+        content: "";
+        position: absolute;
+        left: -6px;
+        width: 10px;
+        height: 10px;
+        background: #fff;
+        border: 3px solid #ccc;
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    
+    @media (max-width: 900px) {
+        .services-section {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .services-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .services-circle {
+            width: 250px;
+            height: 250px;
+            font-size: 1.5rem;
+        }
+
+        .services-list {
+            margin-left: 0;
+            margin-top: 30px;
+        }
+
+        .service-item::before,
+        .service-item::after {
+            display: none;
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+        }
+
+        .service-content p {
+            font-size: 1rem;
+        }
+    }
+</style>
+</head>
+<body>
+
+<section class="services-section">
+    <div class="services-container">
+        
+        <div class="services-circle">
+            WHAT WE OFFER <br>
+        </div>
+
+        
+        <div id="services" class="services-list">
+            <div class="service-item">
+                <div class="service-icon blue"><i class="fas fa-shopping-cart"></i></div>
+                <div class="service-content">
+                    <h3>WALK-IN CUSTOMERS</h3>
+                    <p>We provide a personal shopping experience with expert assistance to help you choose the best products.</p>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <div class="service-icon orange"><i class="fas fa-receipt"></i></div>
+                <div class="service-content">
+                    <h3>ORDERS</h3>
+                    <p>Order from us with ease, and we'll ensure smooth processing and delivery at the best prices.</p>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <div class="service-icon red"><i class="fas fa-truck"></i></div>
+                <div class="service-content">
+                    <h3>DELIVERY</h3>
+                    <p>Reliable and efficient delivery services, ensuring your products reach you on time and safely.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .image-slider {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 500px;
+        background-image: url('./images/faq.jpg');
+        background-size: cover; 
+        background-position: center;
+        background-repeat: no-repeat; 
+        padding: 20px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .frame-container {
+        position: relative;
+        width: 350px;
+        height: 350px;
+        padding: 15px;
+        background: linear-gradient(135deg, #a9adaa, #535553, #40413f); 
+        border-radius: 20px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .image-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border: 10px solid white; 
+        border-radius: 15px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #slideshow-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: opacity 1s ease-in-out;
+    }
+</style>
+
+
+
+<script>
+    const images = [
+        "./images/tamasha multiple.jpg",
+        "./images/global multiple.jpg",
+        "./images/tamasha 2.jpg",
+        "./images/global 2.jpg",
+        "./images/vetlick maziwa.jpg",
+        "./images/Dairy meal.jpg",
+        "./images/dairy meal highyield.jpg",
+        "./images/vetlick maziwa multiple.jpg",
+        "./images/tamasha 1kg.jpg"
+    ];
+
+    let currentIndex = 0;
+    const slideshowImage = document.getElementById("slideshow-image");
+
+    function updateImage() {
+        slideshowImage.style.opacity = "0";
+        setTimeout(() => {
+            slideshowImage.src = images[currentIndex];
+            slideshowImage.style.opacity = "1";
+            currentIndex = (currentIndex + 1) % images.length;
+        }, 500);
+    }
+
+    setInterval(updateImage, 5000);
+</script>
+
+
+<div class="communicate">
+    <h3>Celebrate the best choice.</h3>
+    <p>with a smile.</p>
+</div>
+
+<div class="testimonials mt-100">
+    <div class="container">
+        <div class="section-header" style="text-align: center;">
+            <h2 style="margin-top: -15rem;">Testimonials</h2>
+            <p style="font-size: 2rem; color: #0c3524;">
+                See what people have to say about us
+            </p>
+        </div>
+
+        <div class="owl-carousel testimonials-carousel">
+            <div class="testimonial-item row align-items-center">
+                <div class="testimonial-text">
+                    <h3>Paul</h3>
+                    <h4>Client</h4>
+                    <p>
+                        "The Tamasha maize flour sold like hot cake."
+                    </p>
+                </div>
+            </div>
+            <div class="testimonial-item row align-items-center">
+                <div class="testimonial-text">
+                    <h3>Wangari</h3>
+                    <h4>Customer</h4>
+                    <p>
+                        "The services offered were very streamlined and well delivered."
+                    </p>
+                </div>
+            </div>
+            <div class="testimonial-item row align-items-center">
+                <div class="testimonial-text">
+                    <h3>Willford</h3>
+                    <h4>Distributor</h4>
+                    <p>
+                        It has been amazing working with Green Valley Millers.
+                    </p>
+                </div>
+            </div>
+            <div class="testimonial-item row align-items-center">
+                <div class="testimonial-text">
+                    <h3>Henry</h3>
+                    <h4>Customer</h4>
+                    <p>
+                        i am very grateful to Green valley for bringing services so close to my farm.
+                    </p>
+                </div>
+            </div>
+            <div class="testimonial-item row align-items-center">
+                <div class="testimonial-text">
+                    <h3>Musyemi</h3>
+                    <h4>Customer</h4>
+                    <p>
+                        I have no complains, just grateful to have discovered their products.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .clients {
+        position: relative;
+        padding: 90px 0;
+        text-align: center;
+        margin-top: -10rem;
+        margin-bottom: -10rem;
+        background-color: #ddd;
+    }
+
+    .clients .section-header p {
+        padding-bottom: 10px;
+        margin-top: 2.5rem;
+        text-align: center;
+        font-size: 2rem;
+        color: #333;
+        padding: 1rem 0;
+    }
+
+    .clients img {
+        max-width: 100%;
+        opacity: 1;
+        transition: 0.2s;
+        padding: 15px 0;
+        padding-right: 20px;
+    }
+
+    .clients img:hover {
+        opacity: .5;
+    }
+
+    .clients .owl-nav,
+    .clients .owl-dots {
+        margin-top: 5px;
+        text-align: center;
+    }
+
+    .clients .owl-dot {
+        display: inline-block;
+        margin: 0 5px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #ddd;
+    }
+
+    .clients .owl-dot.active {
+        background-color: #4F84C4;
+    } 
+</style>
+
+<div class="clients mt-100">
+    <div class="container">
+        <div class="section-header">
+            <h2>All In One Stop</h2>
+            <p>
+                Try our products.
+            </p>
+        </div>
+        <div class="owl-carousel clients-carousel">
+            <img src="./images/IMG-20250210-WA0014.jpg" alt="Client Logo">
+            <img src="./images/IMG-20250210-WA0011.jpg" alt="Client Logo">
+            <img src="./images/TAMASHA GRADE 1.jpg" alt="Client Logo">
+            <img src="./images/20250302_110502.jpg" alt="Client Logo">
+            <img src="./images/vetlick maziwa.jpg" alt="Client Logo">
+            <img src="./images/wheat-bran.jpeg" alt="Client Logo">
+            <img src="./images/dairy meal highyield.jpg" alt="Client Logo">
+            <img src="./images/vetlick maziwa multiple.jpg" alt="Client Logo">
+            <img src="./images/_DSC1833 (1).jpg" alt="Client Logo">
+        </div>
+    </div>
+</div>
+<a href="#" class="back-to-top"><i class="ion-ios-arrow-up"></i></a>
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery/jquery-migrate.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/counterup/counterup.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="lib/lightbox/js/lightbox.min.js"></script>
+
+
+<section id="contact" class="contact">
+    <h1 class="heading">Get in Touch</h1>
+</section>
+
+<div class="contact-in">
+    <div class="social-media-links" style="text-align: center; margin-top: 2rem;">
+        
+        <div class="social-icons" 
+             style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1rem; margin-top: 1rem; max-width: 100%;">
+            
+            <p style="font-size: 17px; text-align: center; flex: 1 1 100%; margin-bottom: 1rem; color: #0c3524;">
+                P.O.Box 954-10100<br>
+                Othaya, Nyeri<br>
+                Kenya <br>
+                <strong>Phone:</strong> +254 759102046<br>
+                <strong>Email:</strong> <span style="text-transform: lowercase;">info@greenvalleymillers.co.ke</span><br>
+
+            </p>
+            <a href="https://x.com/Greenvalle19140?t=Qcp2v3IipwzVdWK_0iz7yg&s=09" target="_blank" 
+               style="text-decoration: none; text-align: center; color: #1DA1F2; flex: 1 1 auto;">
+                <i class="fa fa-twitter" style="font-size: 40px;"></i>
+                <p style="margin-top: 0.5rem;">Twitter</p>
+            </a>
+
+            <a href="https://www.facebook.com/share/18Y9jRqwB5/" target="_blank" 
+               style="text-decoration: none; text-align: center; color: #0c2f5e; flex: 1 1 auto;">
+                <i class="fa fa-facebook" style="font-size: 40px;"></i>
+                <p style="margin-top: 0.5rem;">Facebook</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+    <section class="faq">
+      <h1 class="heading" style="margin-top: -2rem; color: #17c007;" id="faq">FAQ</h1>
+      <div class="row">
+          <div class="accordion-container">
+              <div class="accordion">
+                  <div class="accordion-header">
+                      <span>+</span>
+                      <h3>What products do you offer?</h3>
+                  </div>
+                  <div class="accordion-body">
+                      <p>We offer a variety of high-quality products, including fortified maize flour, premium animal feed, and other essential agricultural products. 
+                        Visit our product section for detailed information.</p>
+                  </div>
+              </div>
+              <div class="accordion">
+                  <div class="accordion-header">
+                      <span>+</span>
+                      <h3>Where can I purchase your products?</h3>
+                  </div>
+                  <div class="accordion-body">
+                      <p>Our products are available at major retail outlets and local stores. 
+                        We also provide direct services to walkin customers. For more information, visit our services section.
+                      </p>
+                  </div>
+              </div>
+              <div class="accordion">
+                  <div class="accordion-header">
+                      <span>+</span>
+                      <h3>Are your products certified?</h3>
+                  </div>
+                  <div class="accordion-body">
+                      <p>Yes, all our products meet strict 
+                        quality standards and are certified by the relevant authorities to ensure they are safe and beneficial for our customers.</p>
+                  </div>
+              </div>
+              <div class="accordion">
+                  <div class="accordion-header">
+                      <span>+</span>
+                      <h3>Do you offer bulk purchases or wholesale pricing?</h3>
+                  </div>
+                  <div class="accordion-body">
+                      <p>Yes, we cater to bulk purchases and offer wholesale pricing for businesses. 
+                        Please contact our sales team for more details and customized pricing.</p>
+                  </div>
+              </div>
+              <div class="accordion">
+                  <div class="accordion-header">
+                      <span>+</span>
+                      <h3>How can I get in touch with your customer support?</h3>
+                  </div>
+                  <div class="accordion-body">
+                      <p>You can reach our customer support team via email or phone. 
+                        We are available Monday to Saturday from 8:00 AM to 5:00 PM.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+    <div class="footer">
+      <div class="footer-top">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-3 col-md-6 footer-links">
+                      <h4>About Us</h4>
+                      <ul>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Home</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#about">About us</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#service">Our services</a></li>
+                      </ul>
+                  </div>
+
+                  <div class="col-lg-3 col-md-6 footer-links">
+                      <h4>Useful Links</h4>
+                      <ul>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#products">Products</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#team">Team</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#contact">Contact</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#faq">FAQ</a></li>
+                      </ul>
+                  </div>
+
+                  <div class="col-lg-3 col-md-6 footer-contact" style="font-size: 1.5rem;">
+                      <h4>Contact Us</h4>
+                      <p>
+                          P.O.Box 954-10100<br>
+                          Othaya, Nyeri<br>
+                          Kenya <br>
+                          <strong>Phone:</strong> +254 759102046<br>
+                          <strong>Email:</strong> <span style="text-transform: lowercase;">info@greenvalleymillers.co.ke</span><br>
+
+                      </p>
+
+                      <div class="social-links">
+                          <a href="https://www.facebook.com/share/18Y9jRqwB5/"><i class="ion-logo-facebook"></i></a>
+                          <a href="https://x.com/Greenvalle19140?t=Qcp2v3IipwzVdWK_0iz7yg&s=09"><i class="ion-logo-twitter"></i></a>
+                      </div>
+
+                  </div>
+
+              </div>
+          </div>
+      </div>
+
+      <div class="container">
+          <div class="row align-items-center">
+              <div class="col-md-6 copyright" style="color: #fff; font-size: 1.3rem;">
+                  Copyright &copy; 2025 GreenValley Millers. All Rights Reserved.
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <a href="#" class="back-to-top"><i class="ion-ios-arrow-up"></i></a>
+</body>
+</html>
