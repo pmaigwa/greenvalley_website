@@ -72,6 +72,43 @@
         .navbar ul li a:hover {
             color: #ffcc00;
         }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+        
+        /* Mobile Styles */
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: rgb(1, 37, 24);
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                text-align: center;
+                padding: 10px 0;
+            }
+        
+            .nav-links.active {
+                display: flex;
+            }
+        
+            .menu-toggle {
+                display: block;
+            }
+        }
 
         .home {
             position: relative;
@@ -133,7 +170,10 @@
     <header class="header">
         <a href="#" class="logo"><img src="./images/gvm logo1.png" alt="Logo"></a>
         <nav class="navbar">
-            <ul>
+            <button class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#products">Products</a></li>
@@ -143,6 +183,11 @@
             </ul>
         </nav>
     </header>
+    <script>
+        document.getElementById("menu-toggle").addEventListener("click", function () {
+            document.getElementById("nav-links").classList.toggle("active");
+        });
+    </script>
 
     <section id="home" class="home">
         <div class="slideshow">
