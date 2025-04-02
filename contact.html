@@ -17,7 +17,6 @@
             list-style: none;
         }
 
-        
         .header {
             display: flex;
             align-items: center;
@@ -37,12 +36,18 @@
             height: 3rem;
         }
 
-        .header .navbar ul {
+        /* Navbar */
+        .navbar {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
             display: flex;
             gap: 20px;
         }
 
-        .header .navbar ul li a {
+        .nav-links li a {
             font-size: 1.2rem;
             color: rgb(250, 244, 244);
             font-weight: 500;
@@ -50,110 +55,45 @@
             transition: 0.3s;
         }
 
-        .header .navbar ul li a:hover,
-        .header .navbar ul li .active {
+        .nav-links li a:hover,
+        .nav-links li .active {
             color: #0a6826;
         }
 
-        .contact-banner {
-            background: url('./images/20250302_105725.jpg') no-repeat center center/cover;
-            text-align: center;
-            padding: 140px 0;
-            color: white;
-            position: relative;
-        }
-
-        .contact-banner h1 {
-            font-size: 3rem;
-            font-weight: 600;
-        }
-
-        .contact-banner p {
-            font-size: 1.3rem;
-            margin-top: 10px;
-        }
-
-        .contact-banner p a {
-            color: #f0c040;
-        }
-
-        /* Contact Form */
-        .contact-form-section {
-            text-align: center;
-            padding: 80px 15px;
-            background: #f9f8f6;
-        }
-
-        .contact-form-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 25px;
-        }
-
-        /* Contact Form */
-        .contact-form {
-            max-width: 600px;
-            margin: auto;
-        }
-
-        .input-group {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .input-group input {
-            width: 48%;
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 25px;
-            font-size: 1.2rem;
-        }
-
-        textarea {
-            width: 100%;
-            height: 150px;
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 25px;
-            font-size: 1.2rem;
-            resize: none;
-            margin-bottom: 20px;
-        }
-
-        /* Submit Button */
-        button {
-            padding: 15px 40px;
-            background: #035517;
+        /* Mobile Navigation */
+        .menu-toggle {
+            display: none;
+            background: none;
             border: none;
-            border-radius: 25px;
-            font-size: 1.4rem;
-            font-weight: 500;
+            font-size: 24px;
+            color: white;
             cursor: pointer;
-            transition: 0.3s;
         }
 
-        button:hover {
-            background: #d9a030;
-        }
-
+        /* Responsive Styles */
         @media (max-width: 768px) {
-            .input-group {
-                flex-direction: column;
+            .menu-toggle {
+                display: block;
             }
 
-            .input-group input {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: rgb(1, 37, 24);
                 width: 100%;
-                margin-bottom: 10px;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                text-align: center;
+                padding: 10px 0;
             }
 
-            .header {
-                flex-direction: column;
-                align-items: center;
+            .nav-links.active {
+                display: flex;
             }
 
-            .header .navbar ul {
-                flex-direction: column;
-                gap: 10px;
+            .nav-links li {
+                padding: 10px 0;
             }
         }
     </style>
@@ -163,12 +103,14 @@
     <header class="header">
         <a href="index.html" class="logo"><img src="./images/gvm logo.png" alt="Logo"></a>
         <nav class="navbar">
-            <ul>
+            <button class="menu-toggle" id="menu-toggle">
+                <i class="fa fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="index.html#home">Home</a></li>
                 <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#service">Services</a></li>
                 <li><a href="index.html#products">Products</a></li>
-                <li><a href="index.html#team">Team</a></li>
+                <li><a href="index.html#service">Services</a></li>
                 <li><a href="contact.html" class="active">Contact</a></li>
                 <li><a href="index.html#faq">FAQ</a></li>
             </ul>
@@ -190,7 +132,6 @@
             <textarea name="message" placeholder="Message" required></textarea>
             <button type="submit">Submit</button>
         </form>
-        
     </section>
 
     <div class="contact-in">
@@ -205,14 +146,13 @@
                     Kenya <br>
                     <strong>Phone:</strong> +254 759102046<br>
                     <strong>Email:</strong> <span style="text-transform: lowercase;">info@greenvalleymillers.co.ke</span><br>
-    
                 </p>
                 <a href="https://x.com/Greenvalle19140?t=Qcp2v3IipwzVdWK_0iz7yg&s=09" target="_blank" 
                    style="text-decoration: none; text-align: center; color: #1DA1F2; flex: 1 1 auto;">
                     <i class="fa fa-twitter" style="font-size: 40px;"></i>
                     <p style="margin-top: 0.5rem;">Twitter</p>
                 </a>
-    
+
                 <a href="https://www.facebook.com/share/18Y9jRqwB5/" target="_blank" 
                    style="text-decoration: none; text-align: center; color: #0c2f5e; flex: 1 1 auto;">
                     <i class="fa fa-facebook" style="font-size: 40px;"></i>
@@ -221,8 +161,35 @@
             </div>
         </div>
     </div>
-    
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- JavaScript for Navbar -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.getElementById("menu-toggle");
+            const navLinks = document.getElementById("nav-links");
+
+            menuToggle.addEventListener("click", function () {
+                navLinks.classList.toggle("active");
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener("click", function (event) {
+                if (!menuToggle.contains(event.target) && !navLinks.contains(event.target)) {
+                    navLinks.classList.remove("active");
+                }
+            });
+
+            // Close menu when clicking a link
+            navLinks.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", () => {
+                    navLinks.classList.remove("active");
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
