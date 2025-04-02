@@ -179,26 +179,6 @@ body{
     left: 0;
 }
 
-.header .navbar ul{
-    list-style-type: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.header .navbar ul li{
-    margin: 0 1.5rem;
-}
-
-.header .navbar ul li a{
-    font-size: 2rem;
-    color: #fff;
-}
-
-.header .navbar ul li a:hover{
-    color: #00ff00;
-    text-decoration: underline;
-}
 
 .header .logo i{
     padding: 0.5rem;
@@ -243,39 +223,6 @@ body{
     color: #fff;
     font-size: 3rem;
 }
-
-.home .wave{
-    position: absolute;
-    bottom: -.5rem;
-    left: 0;
-    height: 11rem;
-    width: 100%;
-    background: url(../images/wave.png);
-    background-size: 100rem 11rem;
-    animation: waves 8s linear infinite;
-    background-repeat: repeat-x;
-}
-
-.home .wave2{
-    animation-direction: reverse;
-    animation-duration: 6s;
-    opacity: .3;
-}
-
-.home .wave3{
-    animation-duration: 4s;
-    opacity: .5;
-}
-
-@keyframes waves{
-    0%{
-        background-position-x: 0;
-    }
-    100%{
-        background-position-x: 100rem;
-    }
-}
-
 
 
 #values {
@@ -1095,38 +1042,9 @@ body{
         color: #00ff00;
     }
 
-    .header .navbar{
-        position: fixed;
-        top: -120%;
-        left: 0;
-        height: auto;
-        width: 100%;
-        background-color: white;
-        z-index: 1000;
-        border-top: .1rem solid rgba(0,0,0,.3);
-    }
-
-    .header .navbar ul{
-        height: 100%;
-        width: 100%;
-        flex-flow: column;
-    }
-
-    .header .navbar ul li{
-        margin: 1rem 0;
-    }
-
-    .header .navbar ul li a{
-        color: grey;
-        font-size: 2.4rem;
-    }
 
     .header .fa-times{
         transform: rotate(90deg);
-    }
-
-    .header .nav-toggle{
-        top: 5.8rem;
     }
 
     .home h1{
