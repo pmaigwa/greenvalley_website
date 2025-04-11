@@ -5,124 +5,116 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About Us | Green Valley Millers</title>
   <link rel="icon" href="./images/gvm logo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
     * {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            text-decoration: none;
-            list-style: none;
-        }
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+      list-style: none;
+    }
+
+    body {
+      background-color: #f9f8f6;
+      padding-top: 80px;
+    }
 
     .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            padding: 1rem 2rem;
-            background: rgb(1, 37, 24);
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        }
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 1rem 2rem;
+      background: rgb(1, 37, 24);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
     .header .logo img {
-        height: 50px;
-        width: 80px;
+      height: 50px;
+      width: 80px;
     }
 
     .header .navbar ul {
-        display: flex;
-        gap: 20px;
+      display: flex;
+      gap: 20px;
     }
 
     .header .navbar ul li a {
-        font-size: 1.2rem;
-        color: rgb(250, 244, 244);
-        font-weight: 500;
-        padding: 10px 15px;
-        transition: 0.3s;
+      font-size: 1.2rem;
+      color: rgb(250, 244, 244);
+      font-weight: 500;
+      padding: 10px 15px;
+      transition: 0.3s;
     }
 
     .header .navbar ul li a:hover,
     .header .navbar ul li .active {
-        color: #0a6826;
+      color: #0a6826;
     }
 
-    /* about_us Banner */
-    .about_us-banner {
-        background: url('./images/20250302_111028.jpg') no-repeat center center/cover;
-        text-align: center;
-        padding: 140px 0;
-        color: rgb(8, 8, 8);
-        position: relative;
-        }
-
-    .about_us-banner h1 {
-        font-size: 3rem;
-        font-weight: 600;
-    }
-
-    .about_us-banner p {
-        font-size: 1.3rem;
-        margin-top: 10px;
-    }
-
-    .about_us-banner p a {
-        color: #0b0c0c;
-    }
-    /* Responsive Navbar */
     .menu-toggle {
-        display: none;
-        background: none;
-        border: none;
-        font-size: 24px;
-        color: white;
-        cursor: pointer;
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
     }
 
     @media (max-width: 768px) {
-        .menu-toggle {
-            display: block;
-        }
-    
-        .header {
-            flex-direction: row;
-        }
-    
-        .header .navbar ul {
-            display: none;
-            flex-direction: column;
-            background: rgb(1, 37, 24);
-            width: 100%;
-            position: absolute;
-            top: 60px;
-            left: 0;
-            text-align: center;
-            padding: 10px 0;
-        }
-    
-        .header .navbar ul.active {
-            display: flex;
-        }
-    
-        .header .navbar ul li {
-            padding: 10px 0;
-        }
-    
-        .input-group {
-            flex-direction: column;
-        }
-    
-        .input-group input {
-            width: 100%;
-            margin-bottom: 10px;
-        }
+      .menu-toggle {
+        display: block;
+      }
+
+      .header .navbar ul {
+        display: none;
+        flex-direction: column;
+        background: rgb(1, 37, 24);
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        text-align: center;
+        padding: 10px 0;
+      }
+
+      .header .navbar ul.active {
+        display: flex;
+      }
+
+      .header .navbar ul li {
+        padding: 10px 0;
+      }
+    }
+
+    .about_us-banner {
+      background: url('./images/20250302_111028.jpg') no-repeat center center/cover;
+      text-align: center;
+      padding: 140px 0;
+      color: rgb(8, 8, 8);
+      position: relative;
+    }
+
+    .about_us-banner h1 {
+      font-size: 3rem;
+      font-weight: 600;
+    }
+
+    .about_us-banner p {
+      font-size: 1.3rem;
+      margin-top: 10px;
+    }
+
+    .about_us-banner p a {
+      color: #0b0c0c;
     }
 
     .section {
@@ -256,123 +248,113 @@
       font-size: 0.95rem;
       color: #666;
     }
-
-    @media screen and (max-width: 768px) {
-      .navbar ul {
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .ideas-section {
-        flex-direction: column;
-      }
-
-      .text-columns {
-        flex-direction: column;
-      }
-
-      .hero-content {
-        padding: 30px 20px;
-      }
-    }
   </style>
 </head>
 <body>
 
 <header class="header">
-    <a href="index.html" class="logo"><img src="./images/gvm logo.png" alt="Logo"></a>
-    <nav class="navbar">
-        <button class="menu-toggle" id="menu-toggle">
-            <i class="fa fa-bars"></i>
-        </button>
-        <ul id="nav-links">
-            <li><a href="index.html#home">Home</a></li>
-            <li><a href="about_us.html"  class="active">About</a></li>
-            <li><a href="index.html#products">Products</a></li>
-            <li><a href="index.html#service">Services</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="index.html#faq">FAQ</a></li>
-        </ul>
-    </nav>
+  <a href="index.html" class="logo"><img src="./images/gvm logo.png" alt="Logo"></a>
+  <nav class="navbar">
+    <button class="menu-toggle" id="menu-toggle">
+      <i class="fa fa-bars"></i>
+    </button>
+    <ul id="nav-links">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="about_us.html" class="active">About</a></li>
+      <li><a href="index.html#products">Products</a></li>
+      <li><a href="index.html#service">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+    </ul>
+  </nav>
 </header>
 
 <section class="about_us-banner">
-    <h1>About Us</h1>
-    <p><a href="index.html">Home</a> / About Us</p>
+  <h1>About Us</h1>
+  <p><a href="index.html">Home</a> / About Us</p>
 </section>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h2>OUR STORY</h2>
+<section class="hero">
+  <div class="hero-content">
+    <h2>OUR STORY</h2>
+    <p>
+      Nestled in the heart of Kenya’s fertile agricultural belt, Green Valley Millers Limited
+      was founded in 2024 with a bold vision of being the best choice and a simple mission 
+      — To bring celebration to our consumers by providing the best choice in maize flour, 
+      wheat flour and animal feeds. Driven by innovation and anchored in integrity, we are more than just millers. 
+      We are partners in progress — helping farmers thrive, families eat better, and communities grow stronger.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="text-columns">
+    <div>
       <p>
-        Nestled in the heart of Kenya’s fertile agricultural belt, Green Valley Millers Limited
-         was founded in 2024 with a bold vision of being the best choice a simple mission 
-         — To bring celebration to our consumers by  providing the best choice in maize flour, 
-         wheat flour and animal feeds.
-         Driven by innovation and anchored in integrity, we are more than just millers. We are partners in progress
-          — helping farmers thrive, families eat better, and communities grow stronger.
+        Born out of a deep understanding of the challenges facing both producers and consumers, 
+        Green Valley Millers emerged to bridge the critical gap between hardworking farmers 
+        and families in need of safe, nutritious, and affordable food staples. Recognizing the rising 
+        demand for trusted agricultural products, the company positions itself as a catalyst for change 
+        in the milling and agri-processing industry.
       </p>
     </div>
-  </section>
-
-  <section class="section">
-    <div class="text-columns">
-      <div>
-        <p>
-            Born out of a deep understanding of the challenges facing both producers and consumers, 
-            Green Valley Millers emerged to bridge the critical gap between hardworking farmers 
-            and families in need of safe, nutritious, and affordable food staples. Recognizing the rising 
-            demand for trusted agricultural products, the company positions itself as a catalyst for change 
-            in the milling and agri-processing industry.
-        </p>
-      </div>
-      <div>
-        <p>
-            With a focus on maize flour, wheat flour, and premium animal feeds, Green Valley Millers 
-            has quickly gained recognition for its commitment to consistency, loyalty, and excellence. 
-            Every grain that passes through our state-of-the-art facilities tells a story 
-            — of dedication from the farmer, precision from our team, and nourishment for the consumer.
-        </p>
-      </div>
+    <div>
+      <p>
+        With a focus on maize flour, wheat flour, and premium animal feeds, Green Valley Millers 
+        has quickly gained recognition for its commitment to consistency, loyalty, and excellence. 
+        Every grain that passes through our state-of-the-art facilities tells a story 
+        — of dedication from the farmer, precision from our team, and nourishment for the consumer.
+      </p>
     </div>
+  </div>
 
-    <div class="ideas-section">
-      <div class="ideas-image">
-        <img src="./images/blade-1297217_1280.png" alt="Creative thinking">
-      </div>
-      <div class="ideas-text">
-        <h3>DIRECTOR'S MESSAGE</h3>
-        <p>"At Green Valley Millers, we believe that food is more than sustenance 
-            — it is the foundation of health, dignity, and prosperity. When we established this company in 2024, 
-            our vision was clear: 
-            to be the best. Today, I am proud to say that this vision is taking root and bearing fruit."</p>
-      </div>
+  <div class="ideas-section">
+    <div class="ideas-image">
+      <img src="./images/blade-1297217_1280.png" alt="Creative thinking">
     </div>
+    <div class="ideas-text">
+      <h3>DIRECTOR'S MESSAGE</h3>
+      <p>"At Green Valley Millers, we believe that food is more than sustenance 
+          — it is the foundation of health, dignity, and prosperity. When we established this company in 2024, 
+          our vision was clear: to be the best. Today, I am proud to say that this vision is taking root and bearing fruit."</p>
+    </div>
+  </div>
 
-    <div class="gallery">
-      <img src="./images/gl_tam1.jpg" alt="Mill Scene">
-      <img src="./images/gvm_building.jpg" alt="Production">
-      <img src="./images/pexels-nezahat-cicek-437545912-28198982.jpg" alt="Fields">
-    </div>
+  <div class="gallery">
+    <img src="./images/gl_tam1.jpg" alt="Mill Scene">
+    <img src="./images/gvm_building.jpg" alt="Production">
+    <img src="./images/pexels-nezahat-cicek-437545912-28198982.jpg" alt="Fields">
+  </div>
 
-    <div class="features">
-      <div class="feature-box">
-        <h4>🌿 Consistency</h4>
-        <p>Consistency is the cornerstone of trust. From our raw material sourcing to the final product,
-             we maintain strict quality control at every stage to ensure that every bag meets the same high standards. </p>
-      </div>
-      <div class="feature-box">
-        <h4>🤝 Loyalty</h4>
-        <p>Our roots are firmly planted in the agricultural heartland and with that comes a deep loyalty 
-            as we grow together through long-term relationships built on respect, transparency, and shared purpose.</p>
-      </div>
-      <div class="feature-box">
-        <h4>🏆 Excellence</h4>
-        <p>Excellence is not just an aspiration, it is a standard we live by. 
-            From investing in modern milling technology to building a team that values innovation and professionalism. </p>
-      </div>
+  <div class="features">
+    <div class="feature-box">
+      <h4>🌿 Consistency</h4>
+      <p>Consistency is the cornerstone of trust. From our raw material sourcing to the final product,
+          we maintain strict quality control at every stage to ensure that every bag meets the same high standards. </p>
     </div>
-  </section>
+    <div class="feature-box">
+      <h4>🤝 Loyalty</h4>
+      <p>Our roots are firmly planted in the agricultural heartland and with that comes a deep loyalty 
+          as we grow together through long-term relationships built on respect, transparency, and shared purpose.</p>
+    </div>
+    <div class="feature-box">
+      <h4>🏆 Excellence</h4>
+      <p>Excellence is not just an aspiration, it is a standard we live by. 
+          From investing in modern milling technology to building a team that values innovation and professionalism. </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+
+    menuToggle.addEventListener("click", function () {
+      navLinks.classList.toggle("active");
+    });
+  });
+</script>
 
 </body>
 </html>
