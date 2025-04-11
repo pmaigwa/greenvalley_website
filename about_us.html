@@ -56,74 +56,74 @@
 
     /* about_us Banner */
     .about_us-banner {
-            background: url('./images/20250302_111028.jpg') no-repeat center center/cover;
-            text-align: center;
-            padding: 140px 0;
-            color: rgb(8, 8, 8);
-            position: relative;
+        background: url('./images/20250302_111028.jpg') no-repeat center center/cover;
+        text-align: center;
+        padding: 140px 0;
+        color: rgb(8, 8, 8);
+        position: relative;
         }
 
-        .about_us-banner h1 {
-            font-size: 3rem;
-            font-weight: 600;
-        }
+    .about_us-banner h1 {
+        font-size: 3rem;
+        font-weight: 600;
+    }
 
-        .about_us-banner p {
-            font-size: 1.3rem;
-            margin-top: 10px;
-        }
+    .about_us-banner p {
+        font-size: 1.3rem;
+        margin-top: 10px;
+    }
 
-        .about_us-banner p a {
-            color: #0b0c0c;
-        }
+    .about_us-banner p a {
+        color: #0b0c0c;
+    }
     /* Responsive Navbar */
+    .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
         .menu-toggle {
+            display: block;
+        }
+    
+        .header {
+            flex-direction: row;
+        }
+    
+        .header .navbar ul {
             display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: white;
-            cursor: pointer;
+            flex-direction: column;
+            background: rgb(1, 37, 24);
+            width: 100%;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            text-align: center;
+            padding: 10px 0;
         }
-
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            .header {
-                flex-direction: row;
-            }
-
-            .header .navbar ul {
-                display: none;
-                flex-direction: column;
-                background: rgb(1, 37, 24);
-                width: 100%;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                text-align: center;
-                padding: 10px 0;
-            }
-
-            .header .navbar ul.active {
-                display: flex;
-            }
-
-            .header .navbar ul li {
-                padding: 10px 0;
-            }
-
-            .input-group {
-                flex-direction: column;
-            }
-
-            .input-group input {
-                width: 100%;
-                margin-bottom: 10px;
-            }
+    
+        .header .navbar ul.active {
+            display: flex;
         }
+    
+        .header .navbar ul li {
+            padding: 10px 0;
+        }
+    
+        .input-group {
+            flex-direction: column;
+        }
+    
+        .input-group input {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    }
 
     .section {
       padding: 60px 20px;
