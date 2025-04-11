@@ -76,6 +76,54 @@
         .about_us-banner p a {
             color: #0b0c0c;
         }
+    /* Responsive Navbar */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .header {
+                flex-direction: row;
+            }
+
+            .header .navbar ul {
+                display: none;
+                flex-direction: column;
+                background: rgb(1, 37, 24);
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .header .navbar ul.active {
+                display: flex;
+            }
+
+            .header .navbar ul li {
+                padding: 10px 0;
+            }
+
+            .input-group {
+                flex-direction: column;
+            }
+
+            .input-group input {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
 
     .section {
       padding: 60px 20px;
@@ -315,7 +363,7 @@
       </div>
       <div class="feature-box">
         <h4>🤝 Loyalty</h4>
-        <p>Our roots are firmly planted in the agricultural heartland, and with that comes a deep loyalty 
+        <p>Our roots are firmly planted in the agricultural heartland and with that comes a deep loyalty 
             as we grow together through long-term relationships built on respect, transparency, and shared purpose.</p>
       </div>
       <div class="feature-box">
